@@ -1,4 +1,4 @@
-<%@ page pageEncoding="utf-8"%>   
+ 
 	<div class="container">
 		<div style="overflow-x: hidden; overflow-y: scroll;">
 
@@ -18,7 +18,21 @@
 						</div>
 						<div class="collapse navbar-collapse" id="target">
 							<ul class="nav navbar-nav">
-								<li><a href="/item/posting">POSTING</a></li>
+								<c:choose>
+								<c:when test="${userVO.bsm=='m'}">
+								<li><a href="/manager/posting/">posting</a></li>
+								</c:when>
+								<c:when test="${userVO.bsm=='s'}">									
+								<li><a href="/item/posting/">posting</a></li>
+								</c:when>
+								<c:when test="${userVO.bsm=='c'}">
+								<li><a href="#">CODI</a></li>
+								</c:when>
+								<c:when test="${empty login}">
+								<li id=">CODI</a></li>
+								</c:when>
+								</c:choose>
+								<li><a href="/item/posting">
 								<li><a href="#">OUTER</a></li>
 								<li><a href="#">TOP</a></li>
 								<li><a href="#">BOTTOM</a></li>
@@ -28,22 +42,21 @@
 							</ul>
 
 							<ul class="nav navbar-nav navbar-right">
-								<c:choose>
-
-							<c:when test="${empty login}">
-			
+							<c:choose>
+								
+							<c:when test="${empty(login)}">
+								
 							<li><a href="/user/loginpage">LOGIN</a></li>
 							
-
 							</c:when>
 
-							<c:when test="${not empty login}">
+							<c:when test="${not empty(login)}">
 			
 							<h1>${login.id} welcome</h1>
 								
-							 <li><a href="/user.logout">LOGOUT</a></li>
-								</c:when>
-								</c:choose>
+							 <li><a href="/user/logout">LOGOUT</a></li>
+							</c:when>
+							</c:choose>
 							</ul>
 
 							<form class="navbar-form navbar-right" role="search">

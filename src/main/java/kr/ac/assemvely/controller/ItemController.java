@@ -45,6 +45,7 @@ public class ItemController {
 		return "itemposting";
 	 
 	}
+ 
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	private String upload(@RequestParam MultipartFile imgfile, MultipartHttpServletRequest request, ModelMap model,ItemVo itemvo) throws Exception {

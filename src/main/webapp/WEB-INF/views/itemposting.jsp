@@ -35,7 +35,7 @@
 </head>
 <body>
 	<%@ include file="css.jinc"%>
- 
+ <div>
 				<div>
 					<div>
 						<div>
@@ -149,6 +149,7 @@
 			</div>
 
 		</div>
+	 
 </body>
 
 </html>

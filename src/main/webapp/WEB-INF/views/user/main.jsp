@@ -98,7 +98,7 @@ body {
 			
 			<h1>${login.id}님 환영합니다.</h1>
 								
-			<button onclick="location.href='user/logout'">로그아웃</button>
+			<button onclick="location.href='/user/logout'">로그아웃</button>
 					
 			<div class="dropdown">
 				<button class="dropbtn">드롭다운</button>

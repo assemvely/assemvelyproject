@@ -25,5 +25,13 @@
 	
 	<beans:bean id="multipartResolver"
 	class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-	
+<!-- 	<beans:bean id="loginInterceptor" class="kr.ac.assemvely.interceptor.LoginInterceptor"></beans:bean>
+	<interceptors>
+	<interceptor>
+		<mapping path="/user/loginPost"/>
+		<beans:ref bean="loginInterceptor"/>
+		
+	</interceptor>
+	</interceptors>
+	-->
 </beans:beans>

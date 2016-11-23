@@ -35,6 +35,7 @@
 <!-- <script src="/resources/owl.carousel/owl.carousel.js"></script> -->
 </head>
 <body>
+	 
 	 <%@ include file="css.jinc" %>
 			<div>
 				<div>
@@ -49,14 +50,14 @@
 										<a class="btnbtn-primary btn-large" href="#">Learn more</a>
 									</div>
 								</div>
-
+ 
 								<br />
 								<hr />
 								<br />
 
 								<h3>Event</h3>
-
-
+ 
+								
 								<div id="carousel-example-generic" class="carousel slide"
 									data-ride="carousel">
 

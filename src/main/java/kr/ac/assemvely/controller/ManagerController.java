@@ -42,7 +42,7 @@ public class ManagerController {
 	@RequestMapping(value="/posting")
 	public String posting(Locale locale){
 		
-		return "managerposting";
+		return "/manager/managerposting";
 	}
 	
 	 @RequestMapping(value="/insert",method=RequestMethod.POST)
@@ -80,7 +80,7 @@ public class ManagerController {
 	 public String list(Model model){
 		 List<ManagerVo> managerlist=managerservice.postlist();
 		 model.addAttribute("LIST",managerlist);
-		 return "postlist";
+		 return "/manager/postlist";
 	 }
 	 
 	 
@@ -143,7 +143,7 @@ public class ManagerController {
 	private String readposting(@ModelAttribute("managerbno") int managerbno,Model model){
 		ManagerVo managervo=managerservice.readposting(managerbno);
 		model.addAttribute("READ",managervo);
-		return "readposting";
+		return "/manager/readposting";
 	}
 	
 	@RequestMapping("/deleteposting")
@@ -157,7 +157,7 @@ public class ManagerController {
 	private String updateposting(@ModelAttribute("managerbno")int managerbno,Model model){
 		model.addAttribute("BNO",managerbno);
 	 
-	 return "updateposting";
+	 return "/manager/updateposting";
 	}
 	@RequestMapping("/modify")
 	private String update(@RequestParam MultipartFile imageFile,HttpServletRequest request,ManagerVo vo,Model model) throws IllegalStateException, IOException{
@@ -183,7 +183,7 @@ public class ManagerController {
 		
 		
 		model.addAttribute("READ",managerservice.readposting(vo.getManagerbno()));
-		return "readposting";
+		return "/manager/readposting";
 		
 	}
 

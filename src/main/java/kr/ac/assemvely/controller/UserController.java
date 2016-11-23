@@ -196,16 +196,18 @@ public class UserController
 	}
 	
 	@RequestMapping(value="/loginPost", method={RequestMethod.POST, RequestMethod.GET})
-	public void loginPOST(UserDto dto, HttpSession session, Model model) throws Exception
+	public String loginPOST(UserDto dto, HttpSession session, Model model) throws Exception
 	{
 		
 		UserVo vo = service.login(dto);
-		if(vo == null)
-		{
-			return;
+		if(vo==null){
+			return "homemain";
 		}
+		session.setAttribute("login", vo.getId());
 		model.addAttribute("userVO", vo);
-
+		return "homemain";
+		
+	 
 	}
 	
 	
