@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.assemvely.mapper.ItemMapper">
+	<select id="selectitem" resultType="kr.ac.assemvely.vo.ItemVo">
+		SELECT * FROM ITEMTB
+	</select>
+	<select id="insertitem">
+		insert into ITEMTB (CLOTHCODE,ID,COLORCODE,PRICE,TEMPCODE,NAME,IMGNAME,CATEGORYCODE) values (CLOTHCODE_SEQ.NEXTVAL,#{id},#{colorcode},#{price},#{tempcode},#{name},#{imgname},#{categorycode})
+	</select>
+ 
+</mapper>

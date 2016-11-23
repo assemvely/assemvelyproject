@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="kr.ac.assemvely.mapper.UserMapper">
+	
+	<insert id="following">
+		
+		<![CDATA[ 	
+		
+			INSERT INTO relationtb	
+			(FOLLOWINGID, FOLLOWERID
+			)
+			VALUES (
+			#{followingid}, #{followerid}
+			)
+				
+				]]>
+	
+	</insert>
+	
+	
+	<insert id="join">
+		<![CDATA[ 	
+		
+			INSERT INTO USERTB	
+			(ID, PW, EMAIL, BSM, IMGNAME, IMGPATH,
+			FILENAME,FILEPATH ,ADDRESS
+			)
+			VALUES (
+			#{id}, #{pw}, #{email}, #{bsm}, #{imgname}, #{imgpath},
+			 #{filename}, #{filepath}, #{address}
+			)
+
+				
+				]]>
+	</insert>
+	
+	<insert id="sellerjoin">
+		<![CDATA[ 	
+		
+			INSERT INTO TEMPUSERTB	
+			(ID, PW, EMAIL, BSM, IMGNAME, IMGPATH,
+			FILENAME,FILEPATH ,ADDRESS
+			)
+			VALUES (
+			#{id}, #{pw}, #{email}, #{bsm}, #{imgname}, #{imgpath},
+			 #{filename}, #{filepath}, #{address}
+			)
+
+				
+				]]>
+	</insert>
+	
+	
+	
+	
+	<delete id="deleteuser">
+	
+			<![CDATA[ 	
+				
+				begin
+				  delete from relationtb where followingid=#{id};
+				  delete from relationtb where followerid=#{id};
+				  delete from commenttb where id=#{id};
+				  delete from snstb where id=#{id};
+				  delete from itemtb where id=#{id};
+				  delete from usertb where id = #{id} and pw=#{pw};
+				end;
+
+				]]>
+				
+	</delete>
+				
+	<select id="templist" resultType="kr.ac.assemvely.vo.TempUserVo">
+	
+			<![CDATA[ 	
+					
+					SELECT * FROM tempusertb
+					
+				]]>
+	
+	</select>
+	
+	<select id="userlist" resultType="kr.ac.assemvely.vo.UserVo">
+	
+			<![CDATA[ 	
+					
+					SELECT * FROM usertb
+					
+				]]>
+	
+	</select>
+	
+	
+	
+	<select id="login" resultType="kr.ac.assemvely.vo.UserVo">
+	
+			<![CDATA[ 	
+					
+					SELECT * FROM USERTB
+					where ID=#{id} AND PW=#{pw}
+					
+				]]>
+	
+	</select>
+	
+	<delete id="deletetempuser">
+		<![CDATA[ 	
+				
+				delete from tempusertb where ID=#{id}
+
+				]]>
+				
+	</delete>
+	
+	
+	<select id="selecttempuser" resultType="kr.ac.assemvely.vo.TempUserVo">
+	
+		<![CDATA[ 	
+					SELECT * FROM tempusertb
+					where ID=#{id}
+				]]>
+	
+	
+	
+	</select>
+	
+	
+		<select id="followercounter" resultType="java.lang.Integer">
+	
+		<![CDATA[ 	
+					SELECT COUNT(FOLLOWINGID)
+  					FROM relationtb
+  					WHERE FOLLOWERID=#{followerid} 
+				]]>
+	
+		</select>
+	
+		
+		<select id="followingcounter" resultType="java.lang.Integer">
+	
+		<![CDATA[ 	
+					SELECT COUNT(FOLLOWERID)
+  					FROM relationtb
+  					WHERE FOLLOWINGID=#{followingid}
+				]]>
+	
+		</select>
+		
+		<select id="sellercounter" resultType="java.lang.Integer">
+	
+		<![CDATA[ 	
+					SELECT COUNT(id)
+  					FROM usertb
+  					WHERE bsm='s'
+				]]>
+	
+		</select>
+		
+		<select id="buyercounter" resultType="java.lang.Integer">
+	
+		<![CDATA[ 	
+				 SELECT COUNT(id)
+  					FROM usertb
+  					WHERE bsm='b'
+				]]>
+	
+		</select>
+		
+				
+	
+	</mapper>
