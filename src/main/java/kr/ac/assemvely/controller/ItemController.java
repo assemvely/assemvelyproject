@@ -59,7 +59,7 @@ public class ItemController {
 		cmf.transferTo(file);
 		
 		itemvo.setImgname(cmf.getOriginalFilename());
-		System.out.println(itemvo.toString());
+		 
 		itemservice.insertitem(itemvo);
 		List<ItemVo> list = itemservice.listitem();
 		model.addAttribute("LIST", list);

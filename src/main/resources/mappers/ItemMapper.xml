@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.ac.assemvely.mapper.ItemMapper">
 	<select id="selectitem" resultType="kr.ac.assemvely.vo.ItemVo">
-		SELECT * FROM ITEMTB
+		  SELECT * FROM ITEMTB ORDER BY WRITEDATE DESC
 	</select>
 	<select id="insertitem">
 		insert into ITEMTB (CLOTHCODE,ID,COLORCODE,PRICE,TEMPCODE,NAME,IMGNAME,CATEGORYCODE) values (CLOTHCODE_SEQ.NEXTVAL,#{id},#{colorcode},#{price},#{tempcode},#{name},#{imgname},#{categorycode})

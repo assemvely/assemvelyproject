@@ -35,50 +35,7 @@
 
 </head>
 <body>
-	<div class="container">
-		<div style="overflow-x: hidden; overflow-y: scroll;">
-
-			<div class="navbar navbar-default navbar-fixed-top"
-				style="margin: auto; text-align: center;">
-
-				<a style="margin-left: 480px;" class="navbar-brand"
-					href="/item/main">ASSEMVELY</a>
-				<div class="navbar-header" style="margin: auto; margin-left: 480px;">
-					<div
-						style="overflow: auto; overflow-y: hidden; width: 714px; height: auto; padding: 0 0 17px 0; margin: auto;">
-						<button class="navbar-toggle collapsed" data-toggle="collapse"
-							data-targer="#target">
-							<span class="sr-only">Toggle navigation</span> <span class>"icon-bar"</span>
-							<span class>"icon-bar"</span> <span class>"icon-bar"</span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="target"
-						style="text-align: center;">
-						<ul class="nav navbar-nav">
-							<li><a href="/item/posting">POSTING</a></li>
-							<li><a href="#">OUTER</a></li>
-							<li><a href="#">TOP</a></li>
-							<li><a href="#">BOTTOM</a></li>
-							<li><a href="#">SKIRT</a></li>
-							<li><a href="#">DRESS</a></li>
-							<li><a href="#">ACC</a></li>
-						</ul>
-
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">LOGIN</a></li>
-							<li><a href="#">JOIN</a></li>
-						</ul>
-
-						<form class="navbar-form navbar-right" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="btn btn-default">검색</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+	 	<%@ include file="css.jinc"%>
 
 		<div>
 			<div>

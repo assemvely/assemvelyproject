@@ -22,6 +22,7 @@
 
 <head>
 <title>Item Posting</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="Stylesheet" href="/resources/css/bootstrap.min.css" />
 <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -32,11 +33,12 @@
 <script src="/resources/jquery/jquery-1.12.4.min.js"></script>
 <script src="/resources/owl.carousel/owl.carousel.min.js"></script>
 <!-- <script src="/resources/owl.carousel/owl.carousel.js"></script> -->
+
 </head>
 <body>
 	<%@ include file="css.jinc"%>
- <div>
-				<div>
+ 			<div> 	
+ 				<div>
 					<div>
 						<div>
 	<div class="col-md-12">
@@ -66,7 +68,7 @@
 		<div class="row" style="margin: auto; margin-left: 300px;">
 			<div class="col-lg-8">
 
-				<form action="./upload" method="post" enctype="multipart/form-data">
+				<form action="/item/upload" method="post" enctype="multipart/form-data">
 
 					<div class="form-group">
 
@@ -149,6 +151,7 @@
 			</div>
 
 		</div>
+		
 	 
 </body>
 

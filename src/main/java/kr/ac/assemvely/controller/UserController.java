@@ -78,7 +78,7 @@ public class UserController
 			vo.setFilepath("null");
 			
 			service.join(vo);
-			return "main";
+			return "homemain";
 		}
 		
 		else if (vo.getBsm().equals("s"))
@@ -93,10 +93,10 @@ public class UserController
 			vo.setFilepath(realPath2);
 			
 			service.sellerjoin(vo);
-			return "main";
+			return "homemain";
 			
 		}
-		return "main";
+		return "homemain";
 			
 	}
 	
@@ -104,16 +104,16 @@ public class UserController
 	public String toJoin(Model model) throws Exception
 	{
 		
-		return "join";
+		return "/join";
 		
 	}
 	
 	@RequestMapping(value="/tomanaginguser", method=RequestMethod.GET)
 	public String tomanaginuser(Model model) throws Exception
 	{
-		
+		 
 		model.addAttribute("userlist", service.userlist());
-		return "managinguser";
+		return "/user/managinguser";
 		
 	}
 	
@@ -125,7 +125,7 @@ public class UserController
 		model.addAttribute("sellercounter", service.sellercounter());
 		model.addAttribute("buyercounter", service.buyercounter());
 		
-		return "statistics";
+		return "/user/statistics";
 		
 	}
 	
@@ -135,7 +135,7 @@ public class UserController
 		
 		model.addAttribute("templist", service.templist());
 		
-		return "waitinglist";
+		return "/user/waitinglist";
 		
 	}
 	
@@ -223,14 +223,14 @@ public class UserController
 						
 			session.removeAttribute("login");
 			session.invalidate();
-			return "main";
+			return "homemain";
 		}
 		
 		
 		session.removeAttribute("login");
 		session.invalidate();
 		
-		return "main";
+		return "homemain";
 		
 				
 	}
@@ -252,7 +252,7 @@ public class UserController
 		model.addAttribute("followingcounter", service.followingcounter(followingid));
 		model.addAttribute("followercounter", service.followercounter(followerid));
 				
-		return "mypage";
+		return "/user/mypage";
 	}
 	
 	@RequestMapping(value="/deletetempuser", method=RequestMethod.GET)
@@ -260,7 +260,7 @@ public class UserController
 	{
 		
 		service.deletetempuser(id);
-		return "mypage";
+		return "/user/mypage";
 	}
 	
 	@RequestMapping(value="/deleteuser", method=RequestMethod.GET)
@@ -278,7 +278,7 @@ public class UserController
 				
 		service.deleteuser(dto);
 		logout(request, response, session);
-		return "main";
+		return "homemain";
 		
 	}
 	
@@ -289,7 +289,7 @@ public class UserController
 		
 		model.addAttribute("tempuser", service.selecttempuser(id));
 		System.out.println(service.selecttempuser(id));
-		return "readtempuserinfo";
+		return "/user/readtempuserinfo";
 	}
 	
 	
@@ -306,7 +306,7 @@ public class UserController
 		rvo.setFollowingid(followingid);
 		service.following(rvo);
 		
-		return "mypage";	
+		return "/user/mypage";	
 		
 	}
 

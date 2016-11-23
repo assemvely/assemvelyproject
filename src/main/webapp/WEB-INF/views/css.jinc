@@ -1,5 +1,5 @@
- 
-	<div class="container">
+<%@ page pageEncoding="utf-8"%>   
+<div class="container">
 		<div style="overflow-x: hidden; overflow-y: scroll;">
 
 			<div class="navbar navbar-default navbar-fixed-top"
@@ -25,7 +25,7 @@
 								<c:when test="${userVO.bsm=='s'}">									
 								<li><a href="/item/posting/">posting</a></li>
 								</c:when>
-								<c:when test="${userVO.bsm=='c'}">
+								<c:when test="${userVO.bsm=='b'}">
 								<li><a href="#">CODI</a></li>
 								</c:when>
 								<c:when test="${empty login}">
@@ -44,17 +44,48 @@
 							<ul class="nav navbar-nav navbar-right">
 							<c:choose>
 								
-							<c:when test="${empty(login)}">
+							<c:when test="${empty(userVO)}">
 								
 							<li><a href="/user/loginpage">LOGIN</a></li>
 							
 							</c:when>
 
-							<c:when test="${not empty(login)}">
+							<c:when test="${not empty(userVO)}">
 			
-							<h1>${login.id} welcome</h1>
+							<h1>${userVO.id} welcome</h1>
 								
 							 <li><a href="/user/logout">LOGOUT</a></li>
+							
+							<div class="dropdown"> 
+						<li class="dropbtn">MYPAGE</li>
+							<div class="dropdown-content">
+						
+					<c:choose>
+						<c:when test="${userVO.bsm=='m'}">
+							<a href="/user/tomanaginguser">Userlist</a>
+							<a href="/user/tostatistics">stats</a>
+							<a href="/user/towaitinglist">seller</a>
+							<a href="/manager/posting">posting</a>
+							<a href="/manager/readposting">postingboard</a>
+							
+						</c:when>
+						
+						<c:when test="${userVO.bsm=='b'}">
+							<a href="/user/mypage">my account</a>
+							<a href="#">cart</a>
+							<a href="#">myshopping</a>
+						</c:when>
+						
+						<c:when test="${userVO.bsm=='s'}">
+							<a href="/user/mypage">my account</a>
+							<a href="/user/tostatistics">stats</a>
+						</c:when>
+						
+					</c:choose>
+		
+					
+				</div>
+			</div>
 							</c:when>
 							</c:choose>
 							</ul>
