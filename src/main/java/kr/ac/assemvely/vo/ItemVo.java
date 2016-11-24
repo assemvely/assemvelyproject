@@ -2,7 +2,7 @@ package kr.ac.assemvely.vo;
 
 public class ItemVo {
 
-	private int clothcode;
+	private Integer clothcode;
 	private String id;
 	private String colorcode;
 	private int price;
@@ -34,11 +34,11 @@ public class ItemVo {
 		this.content = content;
 	}
 
-	public int getClothcode() {
+	public Integer getClothcode() {
 		return clothcode;
 	}
 
-	public void setClothcode(int clothcode) {
+	public void setClothcode(Integer clothcode) {
 		this.clothcode = clothcode;
 	}
 

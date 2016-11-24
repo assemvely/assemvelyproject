@@ -2,8 +2,7 @@ package kr.ac.assemvely.dao;
 
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
-
+import kr.ac.assemvely.vo.ItemInfoVo;
 import kr.ac.assemvely.vo.ItemVo;
 
 public interface ItemDao {
@@ -12,4 +11,7 @@ public interface ItemDao {
 
 	public void insertitem(ItemVo itemvo);
 	public ItemVo readposting(String clothcode);
+	
+	public ItemVo clothcode(String name) throws Exception;
+	public void insertinfo(ItemInfoVo info) throws Exception;
 }

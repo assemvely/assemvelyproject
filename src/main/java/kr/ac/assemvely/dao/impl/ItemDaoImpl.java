@@ -6,7 +6,9 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
 import kr.ac.assemvely.dao.ItemDao;
+import kr.ac.assemvely.vo.ItemInfoVo;
 import kr.ac.assemvely.vo.ItemVo;
 
 @Repository
@@ -21,7 +23,7 @@ public class ItemDaoImpl implements ItemDao {
 	public void insertitem(ItemVo itemvo) {
 
 		SqlSession.insert(namespace + ".insertitem", itemvo);
-		System.out.println("¿©±â´Â µð¿¡ÀÌ¿À!"+itemvo.toString());
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¿ï¿½!"+itemvo.toString());
 	}
 
 	@Override
@@ -34,5 +36,21 @@ public class ItemDaoImpl implements ItemDao {
 		 
 		return  SqlSession.selectOne(namespace+".selectone",clothcode);
 	}
+
+	@Override
+	public ItemVo clothcode(String name) throws Exception {
+		// TODO Auto-generated method stub
+		return SqlSession.selectOne(namespace+".select",name);
+		
+	}
+
+	@Override
+	public void insertinfo(ItemInfoVo info) throws Exception {
+		
+		SqlSession.insert(namespace+".insertinfo",info);
+		
+	}
+
+
 
 }

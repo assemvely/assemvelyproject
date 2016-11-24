@@ -10,7 +10,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="insertitem">
 		insert into ITEMTB (CLOTHCODE,ID,COLORCODE,PRICE,TEMPCODE,NAME,IMGNAME,CATEGORYCODE,CONTENT) values (CLOTHCODE_SEQ.NEXTVAL,#{id},#{colorcode},#{price},#{tempcode},#{name},#{imgname},#{categorycode},#{content})
 	</select>
+	
+	
  	<select id="selectone" resultType="kr.ac.assemvely.vo.ItemVo">
  	select * from ITEMTB WHERE CLOTHCODE=#{clothcode}
  	</select>
+ 	
+	<select  id="select" resultType="kr.ac.assemvely.vo.ItemVo">
+	
+	<![CDATA[
+	select clothcode from itemtb where name=#{name}
+	]]>
+	</select>
+
+
+	<insert id="insertinfo">
+	
+	<![CDATA[
+	insert into iteminfotb values(#{clothcode},#{color},#{amount})
+	]]>
+	</insert>
+
+ 	
+ 	
+ 	
 </mapper>

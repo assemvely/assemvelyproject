@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -20,6 +19,7 @@ import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import kr.ac.assemvely.service.ItemService;
+import kr.ac.assemvely.vo.ItemInfoVo;
 import kr.ac.assemvely.vo.ItemVo;
 import kr.ac.assemvely.vo.UserVo;
 
@@ -49,7 +49,7 @@ public class ItemController {
  
 
 	@RequestMapping(value = "/upload")
-	private String upload(@RequestParam MultipartFile imgfile, MultipartHttpServletRequest request, ModelMap model,ItemVo itemvo, HttpSession session) throws Exception {
+	private String upload(@RequestParam MultipartFile imgfile, MultipartHttpServletRequest request, ModelMap model,ItemVo itemvo, HttpSession session,ItemInfoVo info) throws Exception {
 		Map<String, MultipartFile> files = ((MultipartRequest) request).getFileMap();
 		CommonsMultipartFile cmf = (CommonsMultipartFile) files.get("imgfile");
 		String savePath = request.getServletContext().getRealPath("/resources/itemimg");
@@ -63,6 +63,44 @@ public class ItemController {
 		itemvo.setImgname(cmf.getOriginalFilename());
 		 itemvo.setContent(request.getParameter("smarteditor"));
 		itemservice.insertitem(itemvo);
+		
+		
+		
+		
+
+		String name=itemvo.getName();
+		
+		
+		
+		ItemVo clothcode=itemservice.clothcode(name);
+		 
+		 
+		
+		System.out.println("#######"+clothcode);
+		
+		
+		
+		String[] arr=request.getParameterValues("a");
+		 for(int i=0;i<arr.length;i++){
+			 
+			 
+			 String color=arr[i];
+			 info.setColor(color);
+			
+			 i++;
+			 String amount=arr[i];
+			 info.setAmount(amount);
+			
+			 
+			 info.setClothcode(clothcode.getClothcode());
+			 
+			 
+			 itemservice.insertinfo(info);
+			 
+		 }
+		
+		
+		
 		
 		
 		return "redirect:/item/itemlist";

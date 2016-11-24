@@ -2,8 +2,7 @@ package kr.ac.assemvely.service;
 
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
-
+import kr.ac.assemvely.vo.ItemInfoVo;
 import kr.ac.assemvely.vo.ItemVo;
 
 public interface ItemService {
@@ -11,4 +10,9 @@ public interface ItemService {
 
 	public void insertitem(ItemVo vo) throws Exception;
 	public ItemVo readposting(String clothcode);
+	
+	
+	
+	public ItemVo clothcode(String name) throws Exception;
+	public void insertinfo(ItemInfoVo info) throws Exception;
 }
