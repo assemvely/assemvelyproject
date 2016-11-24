@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertinfo">
 	
 	<![CDATA[
-	insert into iteminfotb values(#{clothcode},#{color},#{amount})
+	insert into iteminfotb values(#{clothcode},#{color},to_number(#{amount}))
 	]]>
 	</insert>
 
