@@ -9,12 +9,30 @@ public class ItemVo {
 	private int likecnt;
 	private int tempcode;
 	private String name;
- 
+	private int mileage;
+	public int getMileage() {
+		return mileage;
+	}
+
+	public void setMileage(int mileage) {
+		this.mileage = mileage;
+	}
+
 	private String imgname;
 	private String categorycode;
+	private String content;
+	
 	
 	 
 	 
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
 
 	public int getClothcode() {
 		return clothcode;

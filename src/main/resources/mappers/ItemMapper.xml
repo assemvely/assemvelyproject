@@ -8,7 +8,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  SELECT * FROM ITEMTB ORDER BY WRITEDATE DESC
 	</select>
 	<select id="insertitem">
-		insert into ITEMTB (CLOTHCODE,ID,COLORCODE,PRICE,TEMPCODE,NAME,IMGNAME,CATEGORYCODE) values (CLOTHCODE_SEQ.NEXTVAL,#{id},#{colorcode},#{price},#{tempcode},#{name},#{imgname},#{categorycode})
+		insert into ITEMTB (CLOTHCODE,ID,COLORCODE,PRICE,TEMPCODE,NAME,IMGNAME,CATEGORYCODE,CONTENT) values (CLOTHCODE_SEQ.NEXTVAL,#{id},#{colorcode},#{price},#{tempcode},#{name},#{imgname},#{categorycode},#{content})
 	</select>
- 
+ 	<select id="selectone" resultType="kr.ac.assemvely.vo.ItemVo">
+ 	select * from ITEMTB WHERE CLOTHCODE=#{clothcode}
+ 	</select>
 </mapper>

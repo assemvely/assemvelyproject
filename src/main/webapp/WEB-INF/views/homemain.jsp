@@ -84,7 +84,9 @@ body {
 <script src="/resources/jquery/jquery-1.12.4.min.js"></script>
 <script src="/resources/owl.carousel/owl.carousel.min.js"></script>
 <!-- <script src="/resources/owl.carousel/owl.carousel.js"></script> -->
-
+<script type="text/javascript">
+	 
+</script>
 </head>
 <body>
 	 

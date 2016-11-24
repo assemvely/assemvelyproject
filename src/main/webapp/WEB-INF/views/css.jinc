@@ -18,22 +18,8 @@
 						</div>
 						<div class="collapse navbar-collapse" id="target">
 							<ul class="nav navbar-nav">
-								<c:choose>
-								<c:when test="${userVO.bsm=='m'}">
-								<li><a href="/manager/posting/">posting</a></li>
-								</c:when>
-								<c:when test="${userVO.bsm=='s'}">									
-								<li><a href="/item/posting/">posting</a></li>
-								</c:when>
-								<c:when test="${userVO.bsm=='b'}">
-								<li><a href="#">CODI</a></li>
-								</c:when>
-								<c:when test="${empty login}">
-								<li id=">CODI</a></li>
-								</c:when>
-								</c:choose>
-								<li><a href="/item/posting">
-								<li><a href="#">OUTER</a></li>
+								<li><a href="/all/posting">play</a></li>  
+								<li><a href="/item/itemlist">OUTER</a></li>
 								<li><a href="#">TOP</a></li>
 								<li><a href="#">BOTTOM</a></li>
 								<li><a href="#">SKIRT</a></li>
@@ -59,14 +45,14 @@
 							<div class="dropdown"> 
 						<li class="dropbtn">MYPAGE</li>
 							<div class="dropdown-content">
-						
+				 			 
+				 		
 					<c:choose>
 						<c:when test="${userVO.bsm=='m'}">
 							<a href="/user/tomanaginguser">Userlist</a>
 							<a href="/user/tostatistics">stats</a>
 							<a href="/user/towaitinglist">seller</a>
-							<a href="/manager/posting">posting</a>
-							<a href="/manager/readposting">postingboard</a>
+							<a href="/manager/list">postingboard</a>
 							
 						</c:when>
 						

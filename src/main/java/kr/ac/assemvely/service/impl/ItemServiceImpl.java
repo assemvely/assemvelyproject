@@ -25,4 +25,10 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
+	@Override
+	public ItemVo readposting(String clothcode) {
+	 
+		return dao.readposting(clothcode);
+	}
+
 }

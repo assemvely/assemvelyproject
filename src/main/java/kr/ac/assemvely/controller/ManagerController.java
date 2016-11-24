@@ -15,7 +15,7 @@ import java.util.UUID;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.plaf.synth.SynthSeparatorUI;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,8 +40,9 @@ public class ManagerController {
 	private ManagerService managerservice;
 	
 	@RequestMapping(value="/posting")
-	public String posting(Locale locale){
-		
+	public String posting(Locale locale,HttpSession session){
+	
+	System.out.println("³ª¿Â´Ù");
 		return "/manager/managerposting";
 	}
 	

@@ -10,5 +10,5 @@ public interface ItemService {
 	public List<ItemVo> listitem() throws Exception;
 
 	public void insertitem(ItemVo vo) throws Exception;
-
+	public ItemVo readposting(String clothcode);
 }

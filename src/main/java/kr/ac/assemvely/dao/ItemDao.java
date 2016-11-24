@@ -11,5 +11,5 @@ public interface ItemDao {
 	public List<ItemVo> listitem();
 
 	public void insertitem(ItemVo itemvo);
-
+	public ItemVo readposting(String clothcode);
 }

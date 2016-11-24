@@ -95,10 +95,10 @@
 									<div class="col-lg-3 text-center">
 
 										<div class="thumbnail">
-											<img src="/resources/itemimg/${itemvo.imgname} "
-												alt="No Image">
+											<a href="/item/readposting?clothcode=${itemvo.clothcode}"><img src="/resources/itemimg/${itemvo.imgname} "
+												alt="No Image"></a>
 											<div class="caption">
-												<h3>${itemvo.name}</h3>
+												<h3><a href="/item/readposting?clothcode=${itemvo.clothcode}">${itemvo.name}</a></h3>
 												<p>${itemvo.id}</p>
 												<p>
 													<a href="#" class="btn btn-primary" role="button">좋아요</a> <a

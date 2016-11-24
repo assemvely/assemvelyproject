@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,12 +16,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
 
 import kr.ac.assemvely.service.UserService;
 import kr.ac.assemvely.vo.RelationVo;
@@ -113,6 +112,7 @@ public class UserController
 	{
 		 
 		model.addAttribute("userlist", service.userlist());
+		 
 		return "/user/managinguser";
 		
 	}
@@ -124,7 +124,7 @@ public class UserController
 	{
 		model.addAttribute("sellercounter", service.sellercounter());
 		model.addAttribute("buyercounter", service.buyercounter());
-		
+		 
 		return "/user/statistics";
 		
 	}
@@ -201,9 +201,10 @@ public class UserController
 		
 		UserVo vo = service.login(dto);
 		if(vo==null){
+			
 			return "homemain";
 		}
-		session.setAttribute("login", vo.getId());
+		session.setAttribute("login", vo);
 		model.addAttribute("userVO", vo);
 		return "homemain";
 		
@@ -288,7 +289,7 @@ public class UserController
 	{
 		
 		model.addAttribute("tempuser", service.selecttempuser(id));
-		System.out.println(service.selecttempuser(id));
+	 
 		return "/user/readtempuserinfo";
 	}
 	
@@ -310,5 +311,6 @@ public class UserController
 		
 	}
 
+ 
 	
 }

@@ -21,12 +21,18 @@ public class ItemDaoImpl implements ItemDao {
 	public void insertitem(ItemVo itemvo) {
 
 		SqlSession.insert(namespace + ".insertitem", itemvo);
-
+		System.out.println("여기는 디에이오!"+itemvo.toString());
 	}
 
 	@Override
 	public List<ItemVo> listitem() {
 		return SqlSession.selectList(namespace + ".selectitem");
+	}
+
+	@Override
+	public ItemVo readposting(String clothcode) {
+		 
+		return  SqlSession.selectOne(namespace+".selectone",clothcode);
 	}
 
 }
